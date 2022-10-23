@@ -88,7 +88,7 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "Thought not found." })
-          : res.json(thought)
+          : res.json({ thought, message: "Reaction successfully added." })
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -102,7 +102,7 @@ module.exports = {
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "Thought not found." })
-          : res.json(thought)
+          : res.json({ thought, message: "Reaction successfully deleted." })
       )
       .catch((err) => res.status(500).json(err));
   },
