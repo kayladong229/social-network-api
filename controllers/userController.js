@@ -7,7 +7,7 @@ module.exports = {
       .then((users) => res.json(users))
       .catch((err) => res.status(500).json(err));
   },
-  // Get one student
+  // Get one user
   getSingleUser(req, res) {
     User.findOne({ _id: req.params.userId })
       .select("-__v")
@@ -64,7 +64,7 @@ module.exports = {
       { runValidators: true, new: true }
     )
       .then((user) =>
-        !student
+        !user
           ? res.status(404).json({ message: "User not found." })
           : res.json({ user, message: "Friend successfully added." })
       )
